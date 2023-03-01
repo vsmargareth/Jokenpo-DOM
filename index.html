@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jokenpô</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>JO-KEN-PO</h1>
+  <div id="home">
+    <p>Qual a sua jogada?</p>
+    <div class="mao opcoes" id="opcoes">
+      <img data-choice="pedra" src="./assets/pedra.png" alt="">
+      <img data-choice="tesoura" src="./assets/tesoura.png" alt="">
+      <img data-choice="papel" src="./assets/papel.png" alt="">
+    </div>
+  </div>
+  <div id="placar">
+    <div id="win" class="win">
+      <h3> You WIN! <img src="./assets/flat_party-popper.png" /></h3>
+    </div>
+    <div id="lost" class="lost">
+      <h3>You LOST! <img src="./assets/face-lost.png" /> </h3>
+    </div>
+    <div id="empate" class="empate">
+      <h3>Empate! <img src="./assets/empate.png" /> </h3>
+    </div>
+  </div>
+
+  <div id="start">
+
+    <div class="left">
+      <div class="shot">
+        <p>You: </p>
+        <img id="yourShot" class="imgShot" src="./assets/papel.png" alt="">
+      </div>
+      <div class="shot">
+        <p>Me: </p>
+        <img id="myShot" class="imgShot" src="./assets/pedra.png" alt="">
+      </div>
+    </div>
+
+    <div class="right">
+      <h3>Score: </h3>
+      <div class="point">
+        <p>You: </p>
+        <p id="yourPoints">3</p>
+      </div>
+      <div class="point">
+        <p>Me: </p>
+        <p id="myPoints">3</p>
+      </div>
+      <button id="playAgain"> Play Again</button>
+      <button id="#reset">Reset</button>
+    </div>
+  </div>
+
+
+  <script>
+    // document.querySelector('#home').style.display = 'none';
+    // //selecionando home
+    // let home = document.querySelector('#home');
+    // //criando elemento a esquerda
+    // let left = document.createElement("div")
+    // left.className = "left"
+    // let you = document.createElement('div');
+    // you.className = "shot"
+    // //paragrafo com nome you
+    // let nameYou = document.createElement("p")
+    // nameYou.textContent = 'You: '
+
+    // let me = document.createElement('div');
+    // me.className = "shot"
+    // //paragrafo com nome me
+    // let nameMe = document.createElement("p")
+    // nameYou.textContent = 'Me: '
+
+    // //Elementos da direita
+    // let score = document.createElement('div')
+    // score.className = "score"
+    // function startGame() {
+    //   document.querySelector(".opcoes").style.display = "none";
+    //   home.appendChild(left)
+    //   left.appendChild(you)
+
+
+
+    // }
+    // let img = document.querySelectorAll("img")
+    // img.forEach(function (imagens) {
+    //   imagens.addEventListener("click", startGame)
+    // })
+
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>
