@@ -22,22 +22,22 @@ h1,#home > p{
   margin: 20px;
 }
 #home >p{
-font-size: 50px;
+  font-size: 50px;
 }
 #home{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- gap: 30px;
-margin-top: auto;
-height: 100%;
+  gap: 30px;
+  margin-top: auto;
+  height: 100%;
 }
 .opcoes{
-  display: none;
   display: flex;
   align-items: center;
   gap: 30px;
+  cursor: pointer;
 }
 .opcoes img:hover{
   scale: 1.2;
@@ -85,9 +85,8 @@ button{
   padding: 5px;
   font-family: 'itim', sans-serif;
   font-size: 40px;
+  cursor: pointer;
 }
-
-
 .win{
   padding: 5px;
   font-family: 'itim', sans-serif;
@@ -97,8 +96,10 @@ button{
   background-color: #1953E7 ;
   width: 300px;
   height: 120px;
+  display: none;
 }
 .lost{
+  display: none;
   padding: 5px;
   font-family: 'itim', sans-serif;
   font-size: 40px;
@@ -109,6 +110,7 @@ button{
   height: 120px;
 }
 .empate{
+  display: none;
   padding: 5px;
   font-family: 'itim', sans-serif;
   font-size: 40px;
@@ -117,4 +119,12 @@ button{
   background-color: #07eb40 ;
   width: 350px;
   height: 120px;
+}
+
+.show-flex{
+  display:flex;
+}
+
+.hide{
+  display: none;
 }

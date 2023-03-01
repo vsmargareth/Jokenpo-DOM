@@ -1,32 +1,39 @@
-let countPc = 10;
-let countUser = 3;
+//seletores
+let countPc = 0;
+let countUser = 0;
 
 let home = document.querySelector('#home');
 let start = document.querySelector('#start');
-start.style.display = 'none';
-
-let placar = document.querySelector('#placar');
-// placar.style.display = 'none';
+let placas = document.querySelector('#placas');
 
 let imgs = document.querySelectorAll("#opcoes > img")
-imgs.forEach(function (img) {
-  img.addEventListener("click", startGame)
-})
-placar.querySelector('#win').style.display = 'none';
-placar.querySelector('#lost').style.display = 'none';
-placar.querySelector('#empate').style.display = 'none';
+inicial()
+//Pagina inicial
+function inicial() {
+  home.style.display = 'flex';
+  start.style.display = 'none';
+  imgs.forEach(function (img) {
+    img.addEventListener("click", startGame)
+  })
+  placas.querySelector('#win').style.display = 'none';
+  placas.querySelector('#lost').style.display = 'none';
+  placas.querySelector('#empate').style.display = 'none';
 
+  window.addEventListener("click", selected); //observar se hove algum click
+}
 
 function startGame() {
   home.style.display = 'none';
-  start.style.display = 'flex'
+  start.style.display = 'flex';
   machineChoiceImg()
-  atualizaPlacar()
+  let buttonPlayAgain = document.querySelector('#playAgain');
+  let buttonReset = document.querySelector('#reset');
 
+  buttonPlayAgain.addEventListener("click", playAgain);
+  buttonReset.addEventListener("click", reset);
 }
 
 //Identificando qual mão escolhida
-window.addEventListener("click", selected); //observar se hove alhum click
 function selected(event) {
   let handShot = divCode(event)
   const key = document.querySelector(`[data-choice="${handShot}"]`)
@@ -36,11 +43,11 @@ function selected(event) {
   if (!isKeyExists) {
     return
   }
-  console.log(handShot)
   escolha(event)
   verificaGanhador(escolha(event), machineChoiceImg())
-
+  atualizaplacar()
 }
+
 
 function divCode(eventSelected) { //parametro determinado pelo event do selected
   let localDoEvento;
@@ -73,35 +80,47 @@ function machineChoiceImg() {
 
 function verificaGanhador(user, machine) {
   if (user === machine) {
-    placar.querySelector('#empate').style.display = 'flex';
+    placas.querySelector('#empate').style.display = 'flex';
   } else if (user === 'pedra' && machine === 'papel') {
-    placar.querySelector('#lost').style.display = 'flex';
+    placas.querySelector('#lost').style.display = 'flex';
     countPc++
   } else if (user === 'pedra' && machine === 'tesoura') {
-    placar.querySelector('#win').style.display = 'flex';
+    placas.querySelector('#win').style.display = 'flex';
     countUser++
   } else if (user === 'papel' && machine === 'pedra') {
-    placar.querySelector('#win').style.display = 'flex';
+    placas.querySelector('#win').style.display = 'flex';
     countUser++
   } else if (user === 'papel' && machine === 'tesoura') {
-    placar.querySelector('#lost').style.display = 'flex';
+    placas.querySelector('#lost').style.display = 'flex';
     countPc++
   } else if (user === 'tesoura' && machine === 'pedra') {
-    placar.querySelector('#lost').style.display = 'flex';
+    placas.querySelector('#lost').style.display = 'flex';
     countPc++
   } else if (user === 'tesoura' && machine === 'papel') {
-    placar.querySelector('#win').style.display = 'flex';
+    placas.querySelector('#win').style.display = 'flex';
     countUser++
   }
+
 }
 
-//Atualizar placar
-function atualizaPlacar() {
+//Atualizar placas
+function atualizaplacar() {
   let yourPoints = document.querySelector('#yourPoints');
   let myPoints = document.querySelector('#myPoints');
 
   yourPoints.textContent = countUser;
   myPoints.textContent = countPc;
+}
+
+function playAgain() {
+  inicial()
+
+}
+
+function reset() {
+  countPc = 0;
+  countUser = 0;
+  inicial()
 }
 
 
